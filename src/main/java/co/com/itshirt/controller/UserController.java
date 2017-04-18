@@ -91,5 +91,27 @@ public class UserController {
         }
         return "login";
     }
+	
+	 //TEMPORAL
+    /**
+     * Crear cuenta de usuario.
+     */
+    @RequestMapping(value = "/crearadmin", method = RequestMethod.GET)
+    public String crearAdmin(Model model) {
+    	 final Usuario usuario = new Usuario(); 
+         usuario.setUsername("admin");
+         usuario.setPassword("admin");
+         usuario.setNombres("admin");
+         usuario.setApellidos("admin");
+         usuario.setTelefono("123");
+         usuario.setEmail("admin@admin.co");
+         usuario.setGenero("M");
+         usuario.setEstado("A");
+         usuario.setRol(this.rolRepository.findBySigla("ADMIN"));
+	 System.out.println(usuario);
+	 this.userRepository.save(usuario);
+         this.securityService.autologin("admin", "admin");
+         return "redirect:/welcome";
+    }
 
 }
