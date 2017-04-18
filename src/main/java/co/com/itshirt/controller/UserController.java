@@ -106,7 +106,7 @@ public class UserController {
          usuario.setTelefono("123");
          usuario.setEmail("admin@admin.co");
          usuario.setGenero("M");
-         usuario.setEstado("A");
+         //usuario.setEstado("A");
          usuario.setRol(this.rolRepository.findBySigla("ADMIN"));
 	 System.out.println(usuario);
 	 this.userRepository.save(usuario);
